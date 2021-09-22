@@ -11,9 +11,11 @@ on:
   release:
     types: [published]
 
-  push:
-    branches: 
-      - vmdk-build
+  workflow_dispatch:
+  
+  #push:
+  #  branches: 
+  #    - vmdk-build
 
   #schedule:
   #  - cron: 0 8 * * 5
