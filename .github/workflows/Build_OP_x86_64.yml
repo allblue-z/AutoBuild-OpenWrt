@@ -12,6 +12,11 @@ on:
     types: [published]
 
   workflow_dispatch:
+    inputs:
+      name:
+        description: 'For Test'
+        required: true
+        default: 'Mona the Octocat'
   
   #push:
   #  branches: 
