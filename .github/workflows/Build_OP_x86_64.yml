@@ -11,9 +11,9 @@ on:
   release:
     types: [published]
 
-  #push:
-  #  branches: 
-  #    - vmdk-build
+  push:
+    branches: 
+      - vmdk-build
 
   #schedule:
   #  - cron: 0 8 * * 5
@@ -106,8 +106,12 @@ jobs:
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
 
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y%m%d')"
+
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
-        name: OpenWrt
+        name: OpenWrt.${{ steps.date.outputs.date }}
         path: openwrt/bin
