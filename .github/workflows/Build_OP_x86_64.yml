@@ -43,6 +43,9 @@ jobs:
         docker rmi `docker images -q`
         echo "Deleting files, please wait ..."
         
+        sudo rm -rf \
+          /usr/share/dotnet \
+          
         sudo -E apt-get -y purge \
           azure-cli \
           ghc* \
@@ -58,7 +61,6 @@ jobs:
           php*
           
         sudo rm -rf \
-          /usr/share/dotnet \
           /etc/mysql \
           /etc/php
           
